@@ -9,9 +9,9 @@ pip install pyTelegramBotAPI
 
 github [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI)
 
-Register at [SpeechKit Cloud](https://developer.tech.yandex.ru) and obtain API key. Save it source/voice_echo.YANDEX_KEY
+Register at [SpeechKit Cloud](https://developer.tech.yandex.ru) and obtain API key. Save it to source/voice_echo.YANDEX_KEY
 
-[Register Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) and obtain his token. Save it source/voice_echo.TELEGRAM_KEY
+[Register Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) and obtain his token. Save it to source/voice_echo.TELEGRAM_KEY
 
 ## Usage
 

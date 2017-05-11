@@ -8,6 +8,9 @@ YANDEX_KEY = 'YOUR_SpeechKit_Cloud_KEY__HERE'
 
 MAX_MESSAGE_SIZE = 1000 * 50
 MAX_MESSAGE_DURATION = 15
+
+# https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/speechkit-dg-overview-technology-recogn-docpage/
+# ru-RU, en-US, uk-UK, tr-TR
 VOICE_LANGUAGE = 'ru-RU'
 
 try:
@@ -52,7 +55,7 @@ def echo_voice(message):
       ),
       data=requests.get(file_url).content,
       headers={"Content-type": 'audio/ogg;codecs=opus'}
-    ).text
+    ).content
 
     e = ElementTree.fromstring(xml_data)
     if not int(e.attrib.get('success', '0')):
