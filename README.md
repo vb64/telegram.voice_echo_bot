@@ -18,3 +18,5 @@ Register at [SpeechKit Cloud](https://developer.tech.yandex.ru) and obtain API k
 ```
 python source/voice_echo.py
 ```
+
+visit https://web.telegram.org/#/im?p=@YourBotName
