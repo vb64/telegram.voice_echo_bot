@@ -1,29 +1,27 @@
+"""
+This script demonstrate usage of Yandex SpeechCloud API by Telegram bot.
+"""
 import md5
-import requests
 from xml.etree import ElementTree
+import requests
 from telebot import TeleBot
 
 TELEGRAM_KEY = 'YOUR_BOT_TOKEN_HERE'
 YANDEX_KEY = 'YOUR_SpeechKit_Cloud_KEY__HERE'
 
-MAX_MESSAGE_SIZE = 1000 * 50
-MAX_MESSAGE_DURATION = 15
+MAX_MESSAGE_SIZE = 1000 * 50  # in bytes
+MAX_MESSAGE_DURATION = 15  # in seconds
 
 # https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/speechkit-dg-overview-technology-recogn-docpage/
 # ru-RU, en-US, uk-UK, tr-TR
 VOICE_LANGUAGE = 'ru-RU'
-
-try:
-    from api_key import telegram as TELEGRAM_KEY, yandex as YANDEX_KEY
-except:
-    pass
-
-requests.packages.urllib3.disable_warnings()
-bot = TeleBot(TELEGRAM_KEY)
+bot = TeleBot(TELEGRAM_KEY)  # pylint: disable=invalid-name
 
 
 @bot.message_handler(commands=['start'])
 def start_prompt(message):
+    """Print prompt to input voice message.
+    """
     reply = ' '.join((
       "Press and hold screen button with microphone picture.",
       "Say your phrase and release the button.",
@@ -33,8 +31,10 @@ def start_prompt(message):
 
 @bot.message_handler(content_types=['voice'])
 def echo_voice(message):
-    d = message.voice
-    if (d.file_size > MAX_MESSAGE_SIZE) or (d.duration > MAX_MESSAGE_DURATION):
+    """Voice message handler.
+    """
+    data = message.voice
+    if (data.file_size > MAX_MESSAGE_SIZE) or (data.duration > MAX_MESSAGE_DURATION):
         reply = ' '.join((
           "The voice message is too big.",
           "Try to speak in short.",
@@ -43,7 +43,7 @@ def echo_voice(message):
 
     file_url = "https://api.telegram.org/file/bot{}/{}".format(
       bot.token,
-      bot.get_file(d.file_id).file_path
+      bot.get_file(data.file_id).file_path
     )
 
     xml_data = requests.post(
@@ -57,16 +57,17 @@ def echo_voice(message):
       headers={"Content-type": 'audio/ogg;codecs=opus'}
     ).content
 
-    e = ElementTree.fromstring(xml_data)
-    if not int(e.attrib.get('success', '0')):
+    e_tree = ElementTree.fromstring(xml_data)
+    if not int(e_tree.attrib.get('success', '0')):
         return bot.reply_to(message, "ERROR: {}".format(xml_data))
 
-    text = e[0].text
+    text = e_tree[0].text
 
     if ('<censored>' in text) or (not text):
         return bot.reply_to(message, "Don't understand you, please repeat.")
 
-    bot.reply_to(message, text)
+    return bot.reply_to(message, text)
 
 
+bot.delete_webhook()  # just in case
 bot.polling()
