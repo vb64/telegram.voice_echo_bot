@@ -1,10 +1,11 @@
 """
 This script demonstrate usage of Yandex SpeechCloud API by Telegram bot.
 """
+import logging
 import md5
 from xml.etree import ElementTree
 import requests
-from telebot import TeleBot
+from telebot import TeleBot, logger
 
 TELEGRAM_KEY = 'YOUR_BOT_TOKEN_HERE'
 YANDEX_KEY = 'YOUR_SpeechKit_Cloud_KEY__HERE'
@@ -69,5 +70,6 @@ def echo_voice(message):
     return bot.reply_to(message, text)
 
 
+logger.setLevel(logging.DEBUG)
 bot.delete_webhook()  # just in case
 bot.polling()

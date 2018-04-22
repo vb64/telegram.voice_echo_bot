@@ -3,7 +3,7 @@ Example of usage [Yandex SpeechKit Cloud](https://developer.tech.yandex.ru) with
 
 ## Requirements
 
-* Python 2.x. If it don't installed, [download and install](https://www.python.org/downloads/release/python-2714/).
+* [Python 2.x](https://www.python.org/downloads/release/python-2714/) and [Git](https://git-scm.com/downloads). If it don't installed, download and install.
 * Telegram Bot API Access Token and username of your bot. To generate an Access Token, you have to talk to [@BotFather](https://t.me/botfather) and follow a few simple steps (described [here](https://core.telegram.org/bots#6-botfather)).
 * Yandex SpeechKit Cloud API key. To obtain an API key, you need to register at [SpeechKit Cloud](https://developer.tech.yandex.ru)
 
@@ -14,11 +14,11 @@ git clone https://github.com/vb64/telegram.voice_echo_bot
 cd telegram.voice_echo_bot
 sudp python -m pip install -r requirements.txt
 ```
-Then edit `source/voice_echo.py` and put your Telegram Bot API Access Token at the line 9 of the file:
+Then edit `source/voice_echo.py` and put your Telegram Bot API Access Token at the line 10 of the file:
 ```
 TELEGRAM_KEY = 'YOUR_BOT_TOKEN_HERE'
 ```
-Put your Yandex SpeechKit Cloud API key at the line 10 of the file:
+Put your Yandex SpeechKit Cloud API key at the line 11 of the file:
 ```
 YANDEX_KEY = 'YOUR_SpeechKit_Cloud_KEY__HERE'
 ```
