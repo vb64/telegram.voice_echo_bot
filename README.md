@@ -12,7 +12,7 @@ Example of usage [Yandex SpeechKit Cloud](https://developer.tech.yandex.ru) with
 ```
 git clone https://github.com/vb64/telegram.voice_echo_bot
 cd telegram.voice_echo_bot
-python -m pip install -r requirements.txt
+sudp python -m pip install -r requirements.txt
 ```
 Then edit `source/voice_echo.py` and put your Telegram Bot API Access Token at the line 9 of the file:
 ```
