@@ -28,6 +28,6 @@ And save `source/voice_echo.py` file. Installation complete.
 ```
 python source/voice_echo.py
 ```
-Your bot starts. Now you can talk with bot in any Telegram client. Type in search field of Telegram client an username of your bot and start conversation.
+Your bot starts. Now you can talk with bot in any Telegram client. Type in search field of Telegram client an username of your bot and start conversation. Username of the bot it's a string, that you specified when talking with Telegram BotFather.
 
-Username of the bot it's a string, that you specified when talking with Telegram BotFather. To stop your bot, press Ctrl+C.
+To stop your bot, press Ctrl+C.
