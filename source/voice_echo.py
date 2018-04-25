@@ -6,16 +6,8 @@ import md5
 from xml.etree import ElementTree
 import requests
 from telebot import TeleBot, logger
+from settings import TELEGRAM_KEY, YANDEX_KEY, VOICE_LANGUAGE, MAX_MESSAGE_SIZE, MAX_MESSAGE_DURATION
 
-TELEGRAM_KEY = 'YOUR_BOT_TOKEN_HERE'
-YANDEX_KEY = 'YOUR_SpeechKit_Cloud_KEY__HERE'
-
-MAX_MESSAGE_SIZE = 1000 * 50  # in bytes
-MAX_MESSAGE_DURATION = 15  # in seconds
-
-# https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/speechkit-dg-overview-technology-recogn-docpage/
-# ru-RU, en-US, uk-UK, tr-TR
-VOICE_LANGUAGE = 'ru-RU'
 bot = TeleBot(TELEGRAM_KEY)  # pylint: disable=invalid-name
 
 
@@ -38,6 +30,7 @@ def echo_voice(message):
     if (data.file_size > MAX_MESSAGE_SIZE) or (data.duration > MAX_MESSAGE_DURATION):
         reply = ' '.join((
           "The voice message is too big.",
+          "Maximum duration: {} sec.".format(MAX_MESSAGE_DURATION),
           "Try to speak in short.",
         ))
         return bot.reply_to(message, reply)
