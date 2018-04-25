@@ -1,5 +1,5 @@
 # telegram.voice_echo_bot
-Пример использования [Yandex SpeechKit Cloud](https://developer.tech.yandex.ru) и библиотеки [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI).
+Пример использования [Yandex SpeechKit Cloud](https://developer.tech.yandex.ru) и библиотеки [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI). Вы отправляете голосовое сообщение боту Telegram, а он в ответ присылает вам текст этого сообщения.
 
 ## Предварительные требования
 * [Python 2.x](https://www.python.org/downloads/release/python-2714/). Если не установлен, нужно скачать и установить.
