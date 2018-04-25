@@ -2,7 +2,7 @@
 Example of usage [Yandex SpeechKit Cloud](https://developer.tech.yandex.ru) with [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI) library. You send a voice message to Telegrambot bot, and bot sends you the text of this message in reply.
 
 ## Requirements
-* [Python 2.x](https://www.python.org/downloads/release/python-2714/). If it don't installed, please download and install.
+* [Python 2.7](https://www.python.org/downloads/release/python-2714/). If it don't installed, please download and install.
 * Telegram Bot API Access Token and username of your bot. To generate an Access Token, you have to talk to [@BotFather](https://t.me/botfather) and follow a few simple steps (described [here](https://core.telegram.org/bots#6-botfather)).
 * Yandex SpeechKit Cloud API key. To obtain an API key, you need to register at [SpeechKit Cloud](https://developer.tech.yandex.ru)
 
