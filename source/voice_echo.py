@@ -5,7 +5,7 @@ import logging
 import md5
 from xml.etree import ElementTree
 import requests
-from telebot import TeleBot, logger
+from telebot import TeleBot, logger, apihelper
 from settings import TELEGRAM_KEY, YANDEX_KEY, VOICE_LANGUAGE, MAX_MESSAGE_SIZE, MAX_MESSAGE_DURATION
 
 bot = TeleBot(TELEGRAM_KEY)  # pylint: disable=invalid-name
@@ -62,7 +62,6 @@ def echo_voice(message):
 
     return bot.reply_to(message, text)
 
-
+apihelper.CONNECT_TIMEOUT = 15
 logger.setLevel(logging.DEBUG)
-bot.delete_webhook()  # just in case
 bot.polling()
