@@ -4,7 +4,7 @@ PYTHONEXE = python.exe
 PYTHON = venv\Scripts\$(PYTHONEXE)
 else
 PYTHONEXE = python
-PYTHON = ./venv/Scripts/$(PYTHONEXE)
+PYTHON = ./venv/bin/$(PYTHONEXE)
 endif
 
 S = source
