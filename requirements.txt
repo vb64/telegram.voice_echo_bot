@@ -1,2 +1,4 @@
-pyTelegramBotAPI==2.2.3
+pyTelegramBotAPI
 wit
+flake8
+pylint

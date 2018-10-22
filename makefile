@@ -14,11 +14,13 @@ all: run
 run:
 	$(PYTHON) $(S)/voice_echo.py
 
+tests: flake8 lint
+
 flake8:
 	$(PYTHON) -m flake8 --max-line-length=110 $(S)
 
 lint:
-	$(PYTHON) -m pylint $(S)
+	$(PYTHON) -m pylint --disable=relative-import $(S)
 
 setup: setup_python setup_pip
 
